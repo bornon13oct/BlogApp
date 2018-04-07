@@ -101,6 +101,10 @@ function isLoggedIn(req, res, next){
     res.redirect("/login");
 }
 
+function isInArray(value, array) {
+  return array.indexOf(value) > -1;
+}
+
 app.listen(process.env.PORT, process.env.IP, function () {
     console.log("server has started");
 });
