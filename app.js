@@ -15,7 +15,7 @@ app.use(flash());
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use(require("express-session")({
+app.use(require("cookie-session")({
     secret: "I love nodejs",
     resave: false,
     saveUninitialized: false
