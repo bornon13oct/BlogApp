@@ -50,6 +50,23 @@ app.post("/login", passport.authenticate("local",
     }), function(req, res){
 });
 
+app.get("/register", function (req, res) {
+    res.render("register");
+});
+
+app.post("/register", function(req, res) {
+    User.register(new User({username: req.body.username, firstName: req.body.firstname, lastName: req.body.lastname, blogUrl: req.body.blogurl}), req.body.password, function(err, user){
+        if(err){
+            req.flash("error", err.message);
+            console.log(err);
+            return res.render("register");
+        }
+        passport.authenticate("local")(req, res, function(){
+            req.flash("success", "Welcome to BlogApp "+ user.username);
+            res.redirect("/");
+        });
+    });
+});
 
 app.listen(process.env.PORT, process.env.IP, function () {
     console.log("server has started");
