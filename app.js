@@ -68,6 +68,10 @@ app.post("/register", function(req, res) {
     });
 });
 
+app.get("/blogpost", isLoggedIn, function (req, res) {
+    res.render("addBlog"); 
+});
+
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
