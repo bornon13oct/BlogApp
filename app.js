@@ -72,6 +72,15 @@ app.get("/blogpost", isLoggedIn, function (req, res) {
     res.render("addBlog"); 
 });
 
+app.post("/blogpost", isLoggedIn, function (req, res) {
+    var title           = req.body.title,
+        content         = req.body.content,
+        newBlog = {title: title, content: content};
+        req.user.posts.push(newBlog);
+        req.user.save();
+        res.redirect("/");    
+});
+
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
