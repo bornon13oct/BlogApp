@@ -8,6 +8,8 @@ var express                 = require("express"),
     passportLocalMongoose   = require("passport-local-mongoose"),
     User                    = require("./models/user"),
     LocalStrategy           = require("passport-local");
+
+//mongodb://localhost/Blog
     
 mongoose.connect("mongodb://skay13oct:bornon13oct@ds237979.mlab.com:37979/cashpositive");
 
@@ -15,7 +17,7 @@ app.use(flash());
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use(require("cookie-session")({
+app.use(require("express-session")({
     secret: "I love nodejs",
     resave: false,
     saveUninitialized: false
