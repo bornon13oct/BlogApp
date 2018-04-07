@@ -1,0 +1,21 @@
+<% include partials/header %>
+
+<div class="row">
+    <% users.forEach(function(user){ %>
+        <% if(user.username != currentUser.username) { %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                  <img src="https://yt3.ggpht.com/a-/AJLlDp1tq0YWGzHMtG1zAiTFO7VbMd3dYWcgvg_3ew=s900-mo-c-c0xffffffff-rj-k-no" width="100px">
+                  <div class="caption" style="text-align: center;">
+                    <h3><%= user.username %></h3>
+                    <form action="/follow/<%= user._id %>?_method=PUT" method="post">
+                        <button class="btn btn-primary" type="submit">Follow</button>
+                    </form>
+                  </div>
+                </div>
+            </div>
+        <% } %>
+    <% } );%>
+</div>
+
+<% include partials/footer %>
