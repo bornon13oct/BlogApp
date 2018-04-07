@@ -1,5 +1,6 @@
 # BlogApp
-A simple blog app
+
+A simple blogging app where we can add blogs, follow users and see their posts.
 
 ## How to use
 
