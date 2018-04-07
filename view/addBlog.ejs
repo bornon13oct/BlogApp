@@ -1,0 +1,27 @@
+<% include partials/header %>
+
+<div class="container">
+    <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Add Blog</div>
+            </div>  
+            <div class="panel-body">
+                <form id="signupform" action="/blogpost" class="form-horizontal" role="form" method="post">
+                    
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" name="title" placeholder="Title">
+                        </div>
+                    </div>
+                    <textarea class="form-group col-md-12" style="margin-left:0px;border: 1px solid #ccc;border-radius: 4px;color: #555;" name="content" placeholder="Describe your Content"></textarea>
+                    <div style="text-align:center;">
+                        <button type="submit" class="btn btn-lg btn-success" style="margin:0 auto;">Add!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include partials/footer %>
