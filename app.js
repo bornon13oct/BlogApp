@@ -112,6 +112,18 @@ app.put("/follow/:id", isLoggedIn, function (req, res){
     res.redirect("/users");
 });
 
+app.get("/feed", isLoggedIn, function(req, res) {
+    User.findById(req.user._id).populate("following").exec(function(err, foundUser){
+        if(err){
+            req.flash("error", "Something went wrong");
+            console.log(err);
+        }
+        else {
+            res.render("feed", {blogs: foundUser.following});
+        }
+    });
+});
+
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
