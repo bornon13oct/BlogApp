@@ -1,0 +1,33 @@
+body {
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+   color:    #aaa;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #aaa;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #aaa;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #aaa;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #aaa;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color:    #aaa;
+}
+
+form textarea {
+	resize: vertical;
+    max-height: 150px;
+    min-height: 150px;
+    width: 100%;
+    margin: 0px 0px 15px;
+    height: 167px;
+}
