@@ -81,6 +81,18 @@ app.post("/blogpost", isLoggedIn, function (req, res) {
         res.redirect("/");    
 });
 
+app.get("/users", isLoggedIn, function(req, res){
+    User.find({}, function(err, allUsers){
+        if(err){
+            req.flash("error", "Something went wrong");
+            console.log(err);
+        }
+        else{
+            res.render("users", {users: allUsers});     
+        }
+    });
+});
+
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
