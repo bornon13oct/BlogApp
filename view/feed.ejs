@@ -1,0 +1,17 @@
+<% include partials/header %>
+
+<div class="container">
+    <% blogs.forEach(function(blog){ %>
+        <% blog.posts.forEach(function(post){ %>
+            <div class="col-md-12" style="text-align:center; padding:30px; border-bottom:1px solid lightgray;">
+                <h3 style="padding:10px;"><%= post.title %></h3>
+                <p style="padding:10px;"><%= post.content %></p>
+                <div>
+                    <span class="badge pull-right">Posted by <%= blog.username %></span>
+                </div>
+            </div>
+        <% }); %>
+    <% } );%>
+</div>
+
+<% include partials/footer %>
