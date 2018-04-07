@@ -124,6 +124,12 @@ app.get("/feed", isLoggedIn, function(req, res) {
     });
 });
 
+app.get("/logout", function(req, res){
+    req.logout();
+    req.flash("success", "logged you out");
+    res.redirect("/");
+});
+
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
