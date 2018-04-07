@@ -93,6 +93,25 @@ app.get("/users", isLoggedIn, function(req, res){
     });
 });
 
+app.put("/follow/:id", isLoggedIn, function (req, res){
+    User.findById(req.params.id,function(err, foundUser){
+        if(err){
+            req.flash("error", "Something went wrong");
+            console.log(err);
+        }
+        else {
+            if(!(isInArray(req.params.id, req.user.following)))
+            {
+                req.user.following.push(foundUser);
+                req.user.save();
+            } else {
+                console.log("user already present.");
+            }
+        }
+    });
+    res.redirect("/users");
+});
+
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
